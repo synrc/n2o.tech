@@ -12,12 +12,13 @@
 <style>
 .compare{overflow:auto;margin:10px auto;border-left:1px solid #ddd;border-collapse: collapse}
 .compare tr:nth-child(2n+1){background-color:#eee}
-.compare th{font-weight:700;background-color:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ccc;border-right:1px solid #ccc;padding:8px 10px}
-.compare td{border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;padding: 8px 10px}
+.compare th{word-wrap:anywhere;font-weight:700;background-color:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ccc;border-right:1px solid #ccc;padding:8px 10px}
+.compare td{word-wrap:anywhere;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;padding: 8px 10px}
 ul.disc{list-style-type: disc}
 ul.circle{padding-left:1.5em;list-style-type:circle;margin:0}
 main ol{max-width:850px;margin:20px auto}
 .imgw{max-width:100%}
+figure code{word-break:break-word;white-space:pre-wrap}
 </style>
 </head>
 <body>
@@ -104,7 +105,7 @@ main ol{max-width:850px;margin:20px auto}
     </p>
     <p>ところで、気になるのはやはり速度です。<br /><br />
       少し前の情報のようですが、プロジェクトのページに以下のような表が掲載されていました。<br /><br />
-      <img src="img/jp1.png" alt="">
+      <img class="imgw" src="img/jp1.png" alt="">
     </p>
     <p>もう一つ、N2Oのプロジェクトページの比較表から引用しますが、
     </p>
@@ -491,7 +492,7 @@ $ sudo apt-get install git inotify-tools
     </p>
     <p>
        ブラウザ上で何かメッセージを入力してから、CHATボタンを押すと、サーバにはシリアライズされたデータが送信されてきます。<br />
-      <img src="img/jp3.png" alt="">
+      <img class="imgw" src="img/jp3.png" alt="">
     </p>
     <p>単純なメッセージでも、結構複雑な形式のデータとして送られています。
     </p>
@@ -615,7 +616,7 @@ $ sudo apt-get install git inotify-tools
        トークンの値が間違っていると、サーバ側で無視されますので、何も起きません。
     </p>
     <p>
-      <img src="img/jp5.png" alt="">
+      <img class="imgw" src="img/jp5.png" alt="">
     </p>
     <figure>
       <code>
@@ -633,14 +634,14 @@ $ sudo apt-get install git inotify-tools
       </code>
     </figure>
     <p>上手く行くと、以下のように送ったメッセージがそのままサーバから返ってきてブラウザ上に表示されるはずです。<br /><br />
-      <img src="img/jp6.png" alt="">
+      <img class="imgw" src="img/jp6.png" alt="">
     </p>
   </section>
   <section>
     <a name="n2o%E3%81%AE%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3"></a>
     <h3>N2Oのアーキテクチャ</h3>
     <p>
-      <img src="img/jp7.png" alt="">
+      <img class="imgw" src="img/jp7.png" alt="">
     </p>
   </section>
   <section>
@@ -704,7 +705,7 @@ $ sudo apt-get install git inotify-tools
     <a name="%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E7%A2%BA%E8%AA%8D-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6"></a>
     <h3>リアルタイムレートの確認 (ブラウザ)</h3>
     <p>
-      <img src="img/jp8.png" alt="">
+      <img class="imgw" src="img/jp8.png" alt="">
     </p>
   </section>
   <section>

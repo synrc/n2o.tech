@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="Maxim Sokhatsky" />
-<title>N2O NIPPON</title>
+<title>N2O</title>
 <link rel="stylesheet" href="https://n2o.dev/blank.css?x=12"/>
 <link rel="stylesheet" href="https://n2o.dev/zima.css?x=12"/>
 <style>
@@ -14,6 +14,7 @@
 .compare tr:nth-child(2n+1){background-color:#eee}
 .compare th{word-wrap:anywhere;font-weight:700;background-color:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ccc;border-right:1px solid #ccc;padding:8px 10px}
 .compare td{word-wrap:anywhere;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;padding: 8px 10px}
+
 ul.disc{list-style-type: disc}
 ul.circle{padding-left:1.5em;list-style-type:circle;margin:0}
 main ol{max-width:850px;margin:20px auto}
@@ -24,29 +25,34 @@ figure code{word-break:break-word;white-space:pre-wrap}
 <body>
 <nav>
   <!--<a href="https://n2o.dev">DEV</a>-->
-  <a href="https://n2o.dev/articles/dseg.htm" style="background:#ededed;">N2O NIPPON</a>
+  <a href="https://n2o.dev/articles/dseg.htm" style="background:#ededed;">N2O</a>
 </nav>
 <header>
   <a href="../index.html"><img src="https://n2o.space/img/Synrc Neo.svg" /></a>
-  <h1>N2O NIPPON</h1>
+  <h1>N2O</h1>
 </header>
 <aside>
   <article>
     <section>
       <a name="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"></a>
-      <h3>リアルタイムWebフレームワーク、N2Oを使ってみる</h3><br />
+      <h3>リアルタイムWebフレームワーク、N2Oを使ってみる</h3>
       <h3>はじめに</h3>
-      <div>私は仕事では主にフロントエンドの開発をしているのですが、時には株価やニュースなどリアルタイム性の高い機能の実装が必要になる事もあります。<br />
-        先日、WebSocketを使ったリアルタイム性の高いWebアプリを作りたい、と思い調べていたところ、
-        <a href="https://synrc.com/apps/n2o/">N2O</a> というフレームワークがあることを知りました。<br />
-         もともとは別のErlang製Webフレームワークである <a href="http://chicagoboss.org/">ChicagoBoss</a> を調査していたのですが、プロジェクトのページに
-        <a href="https://github.com/ChicagoBoss/ChicagoBoss/wiki/comparison-of-erlang-web-frameworks">Comparison of Erlang Web Frameworks</a>
-         という比較表があり、機能が高く速そうだったことから興味を持ちました。
+      <div>
+        <p>私は仕事では主にフロントエンドの開発をしているのですが、時には株価やニュースなどリアルタイム性の高い機能の実装が必要になる事もあります。
+        </p>
+        <p>先日、WebSocketを使ったリアルタイム性の高いWebアプリを作りたい、と思い調べていたところ、
+          <a href="https://synrc.com/apps/n2o/">N2O</a> というフレームワークがあることを知りました。
+        </p>
+        <p>もともとは別のErlang製Webフレームワークである <a href="http://chicagoboss.org/">ChicagoBoss</a> を調査していたのですが、プロジェクトのページに
+          <a href="https://github.com/ChicagoBoss/ChicagoBoss/wiki/comparison-of-erlang-web-frameworks">Comparison of Erlang Web Frameworks</a>
+           という比較表があり、機能が高く速そうだったことから興味を持ちました。
+        </p>
       </div>
     </section>
   </article>
 </aside>
 <main>
+<article>
   <section>
     <a name="n2o%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"></a>
     <h3>N2Oについて</h3>
@@ -55,13 +61,18 @@ figure code{word-break:break-word;white-space:pre-wrap}
     </p>
     <p>N2Oは"Nitrogen 2x Optimized"の略で、同じErlangのWebアプリケーションフレームワークである
       <a href="http://nitrogenproject.com/">Nitrogen</a> から、主に
-      <a href="http://erlang.org/pipermail/erlang-questions/2013-August/075094.html">高速化を目的として分岐</a>したプロダクトとの事です。<br /><br />
-      従って、<a href="http://nitrogenproject.com/">Nitrogen</a>を知っていれば、N2Oにもすぐ馴染めるのではないでしょうか。<br /><br />
-      <a href="http://nitrogenproject.com/doc/index.html">Nitrogenプロジェクトでは文書が充実しており</a>、それをほぼそのまま参考に出来るのは有利です。<br /><br />
-      個人的には<a href="http://nitrogenproject.com/">Nitrogen</a>も使った事がなかったのですが、N2O自体の文書も結構充実しており、特に困ることはありませんでした。
+      <a href="http://erlang.org/pipermail/erlang-questions/2013-August/075094.html">高速化を目的として分岐</a>したプロダクトとの事です。
     </p>
-    <p>特に、<a href="https://synrc.com/apps/n2o/doc/book.pdf">N2Oについての68ページの電子書籍</a>がPDFで公開されているのが大きかったです。<br /><br />
-       マイナーなフレームワークでもしっかりした文書があると安心感があり、入って行きやすいですね。
+    <p>従って、<a href="http://nitrogenproject.com/">Nitrogen</a>を知っていれば、N2Oにもすぐ馴染めるのではないでしょうか。
+    </p>
+    <p>
+      <a href="http://nitrogenproject.com/doc/index.html">Nitrogenプロジェクトでは文書が充実しており</a>、それをほぼそのまま参考に出来るのは有利です。
+    </p>
+    <p>個人的には<a href="http://nitrogenproject.com/">Nitrogen</a>も使った事がなかったのですが、N2O自体の文書も結構充実しており、特に困ることはありませんでした。
+    </p>
+    <p>特に、<a href="https://synrc.com/apps/n2o/doc/book.pdf">N2Oについての68ページの電子書籍</a>がPDFで公開されているのが大きかったです。
+    </p>
+    <p>マイナーなフレームワークでもしっかりした文書があると安心感があり、入って行きやすいですね。
     </p>
     <p>また、この<a href="http://slides.com/maximsokhatsky/n2o#/">N2O Erlang Web Stack</a>という紹介スライドも明快で背中を押されました。
     </p>
@@ -100,12 +111,16 @@ figure code{word-break:break-word;white-space:pre-wrap}
     </figure>
     <p>N2Oでは、HTTPプロトコルのハンドリングには<a href="https://github.com/ninenines/cowboy">Cowboy</a>,
       Pub/Subには<a href="https://github.com/uwiger/gproc">gproc</a>
-       、テンプレートの処理に<a href="https://github.com/erlydtl/erlydtl">ErlyDTL</a>が使われています。<br /><br />
-      本体の行数が少ないのは、各機能を効果的にライブラリに委譲している事にも由来していそうです。
+       、テンプレートの処理に<a href="https://github.com/erlydtl/erlydtl">ErlyDTL</a>が使われています。
     </p>
-    <p>ところで、気になるのはやはり速度です。<br /><br />
-      少し前の情報のようですが、プロジェクトのページに以下のような表が掲載されていました。<br /><br />
-      <img class="imgw" src="img/jp1.png" alt="">
+    <p>本体の行数が少ないのは、各機能を効果的にライブラリに委譲している事にも由来していそうです。
+    </p>
+    <p>ところで、気になるのはやはり速度です。
+    </p>
+    <p>少し前の情報のようですが、プロジェクトのページに以下のような表が掲載されていました。
+    </p>
+    <p>
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp1.png" alt=""></figure>
     </p>
     <p>もう一つ、N2Oのプロジェクトページの比較表から引用しますが、
     </p>
@@ -185,27 +200,35 @@ figure code{word-break:break-word;white-space:pre-wrap}
   <section>
     <a name="%E3%81%8A%E3%81%93%E3%81%A8%E3%82%8F%E3%82%8A"></a>
     <h3>(おことわり)</h3>
-    <p>このエントリは、半年ほど前、N2O v2.4で調査した際のメモを元に作成しましたが、<br /><br />
-      N2Oの最近のバージョン(多分2.8?)では結構大きな変更が加わったようで、サーバ・クライアント間で送受信するデータの構造やAPIが変わりました。<br /><br />
-      N2Oの最新バージョンは、2015/12/14現在、v2.11です。<br /><br />
-      引用したサンプルがv2.11でも動く事は軽く確認しましたが、内容が古い可能性があります(古いAPIを使っている等)。<br /><br />
-      時間が出来たら調べて内容を更新したいと思っています。<br /><br />
-      また、整理してからサンプル一式をGithubにソースをコミットする予定でいます。
+    <p>このエントリは、半年ほど前、N2O v2.4で調査した際のメモを元に作成しましたが、
+    </p>
+    <p>N2Oの最近のバージョン(多分2.8?)では結構大きな変更が加わったようで、サーバ・クライアント間で送受信するデータの構造やAPIが変わりました。
+    </p>
+    <p>N2Oの最新バージョンは、2015/12/14現在、v2.11です。
+    </p>
+    <p>引用したサンプルがv2.11でも動く事は軽く確認しましたが、内容が古い可能性があります(古いAPIを使っている等)。
+    </p>
+    <p>時間が出来たら調べて内容を更新したいと思っています。
+    </p>
+    <p>また、整理してからサンプル一式をGithubにソースをコミットする予定でいます。
     </p>
   </section>
   <section>
     <a name="%E3%81%8A%E5%8B%A7%E3%82%81%E3%81%AE%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB"></a>
     <h3>お勧めのチュートリアル</h3>
-    <p>まずはサンプルないかな? と、ググってみましたが、余りヒットしません。<br /><br />
-      Synrc社による実装例があるので、こちらを読むのが王道でしょうが、結構本格的なサンプルであるので入門用には重いです。
+    <p>まずはサンプルないかな? と、ググってみましたが、余りヒットしません。
+    </p>
+    <p>Synrc社による実装例があるので、こちらを読むのが王道でしょうが、結構本格的なサンプルであるので入門用には重いです。
     </p>
     <ul class="disc">
       <li><a href="https://github.com/synrc/skyline">Skyline: N2O Sample Website</a></li>
       <li><a href="https://github.com/synrc/games">オンラインポーカー?のサンプル</a></li>
     </ul>
-    <p>そんな中、以下の<a href="http://crashdump.io">CRASHDUMP.IO</a>によるチュートリアルが参考になりましたのでお勧めです。<br /><br />
-      4回シリーズで、ゼロから始めてHello World・テンプレートまでと、内容も軽めで分かりやすいです。<br /><br />
-      (ただし情報は若干古い)
+    <p>そんな中、以下の<a href="http://crashdump.io">CRASHDUMP.IO</a>によるチュートリアルが参考になりましたのでお勧めです。
+    </p>
+    <p>4回シリーズで、ゼロから始めてHello World・テンプレートまでと、内容も軽めで分かりやすいです。
+    </p>
+    <p>(ただし情報は若干古い)
     </p>
     <ol>
       <li><a href="http://blog.crashdump.io/hello-n2o.html">Hello N2O!</a></li>
@@ -243,11 +266,13 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E6%8F%90%E4%BE%9B%E5%85%83%E3%81%AF"></a>
     <h3>リアルタイムレートの提供元は?</h3>
-    <p>少し探した範囲では、株価のレートを無料でリアルタイム配信してくれるサービスが見当たらなかったので、ビットコインのレートを使うことにします。<br /><br />
-       ビットコインの市場は、土日もなく24時間/365日動き続けているので、むしろこちらの方が都合が良いですね。
+    <p>少し探した範囲では、株価のレートを無料でリアルタイム配信してくれるサービスが見当たらなかったので、ビットコインのレートを使うことにします。
     </p>
-    <p>WebSocketを扱うので、<a href="https://www.npmjs.com/package/wscat">wscat</a> コマンドを環境に含めておくと良い感じです。<br /><br />
-      socat/netcatでも出来ない訳ではないですが、ちょっと面倒。
+    <p>ビットコインの市場は、土日もなく24時間/365日動き続けているので、むしろこちらの方が都合が良いですね。
+    </p>
+    <p>WebSocketを扱うので、<a href="https://www.npmjs.com/package/wscat">wscat</a> コマンドを環境に含めておくと良い感じです。
+    </p>
+    <p>socat/netcatでも出来ない訳ではないですが、ちょっと面倒。
     </p>
   </section>
   <section>
@@ -316,10 +341,12 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="websocket%E3%81%8B%E3%82%89%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E5%8F%97%E4%BF%A1-erlang%E7%B7%A8"></a>
     <h3>WebSocketからリアルタイムレート受信 (Erlang編)</h3>
-    <p>N2Oに組み込む前に、まずは単独でレートを受信してみます。<br /><br />
-      WebSocketのクライアントライブラリが必要ですが、今回は
-      <a href="https://github.com/jeremyong/websocket_client/">websocket_client</a>を使います。<br /><br />
-      (他には<a href="https://github.com/ninenines/gun">Gun</a>も便利なライブラリだそうです)
+    <p>N2Oに組み込む前に、まずは単独でレートを受信してみます。
+    </p>
+    <p>WebSocketのクライアントライブラリが必要ですが、今回は
+      <a href="https://github.com/jeremyong/websocket_client/">websocket_client</a>を使います。
+    </p>
+    <p>(他には<a href="https://github.com/ninenines/gun">Gun</a>も便利なライブラリだそうです)
     </p>
     <figure>
       <code>
@@ -394,20 +421,25 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="n2o%E3%81%A7%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E9%85%8D%E4%BF%A1"></a>
     <h3>N2Oでリアルタイムレート配信</h3>
-    <p>続いて、N2Oを使った配信サービスの方を考えます。<br /><br />
-      先ほどのAPIで購読したリアルタイムレートを、接続してきたクライアントに配信(中継)すれば良いので、仕組みはチャットとかなり似ています。<br /><br />
-       (チャットは誰もが話しますが、レート配信は一人だけが話すイメージ)<br /><br />
-      N2Oのひな型にサンプルにチャットがありますが、このサンプルを改造すれば良さそうです。
+    <p>続いて、N2Oを使った配信サービスの方を考えます。
     </p>
-    <p>ところで、N2Oには「レビューボード」のサンプルが付属しており、これはコードレビューを行うサンプルアプリで結構凝っています。<br /><br />
-       それとは別にもっと単純なチャットのサンプルがあるのですが、これはアプリのひな型を作った時に生成されます。
+    <p>先ほどのAPIで購読したリアルタイムレートを、接続してきたクライアントに配信(中継)すれば良いので、仕組みはチャットとかなり似ています。
+    </p>
+    <p>(チャットは誰もが話しますが、レート配信は一人だけが話すイメージ)
+    </p>
+    <p>N2Oのひな型にサンプルにチャットがありますが、このサンプルを改造すれば良さそうです。
+    </p>
+    <p>ところで、N2Oには「レビューボード」のサンプルが付属しており、これはコードレビューを行うサンプルアプリで結構凝っています。
+    </p>
+    <p>それとは別にもっと単純なチャットのサンプルがあるのですが、これはアプリのひな型を作った時に生成されます。
     </p>
   </section>
   <section>
     <a name="mad%E3%81%A7%E3%83%93%E3%83%AB%E3%83%89%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0repl"></a>
     <h3>madでビルド・パッケージング・REPL</h3>
-    <p>では、早速やってみましょう。<br /><br />
-      N2Oでは、rebarではなく、<a href="https://synrc.com/apps/mad/">mad</a>というツールでビルド等を行います。
+    <p>では、早速やってみましょう。
+    </p>
+    <p>N2Oでは、rebarではなく、<a href="https://synrc.com/apps/mad/">mad</a>というツールでビルド等を行います。
     </p>
     <ul class="disc">
       <li><a href="https://synrc.com/apps/mad/doc/book.pdf">madの文書(PDF)</a></li>
@@ -428,16 +460,18 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="n2o%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%81%B2%E3%81%AA%E5%9E%8B%E3%81%AE%E4%BD%9C%E6%88%90"></a>
     <h3>N2Oアプリのひな型の作成</h3>
-    <p>だいぶ雰囲気がつかめてきたところで、アプリの作成をやってみます。<br /><br />
-       アプリのひな型も、madで作成します。
+    <p>だいぶ雰囲気がつかめてきたところで、アプリの作成をやってみます。
+    </p>
+    <p>アプリのひな型も、madで作成します。
     </p>
     <figure>
       <code>
   mad app &#60;アプリケーション名&#62;
       </code>
     </figure>
-    <p>このコマンドを発行すると、デフォルトでは、非常にシンプルなチャットアプリが生成されます。<br /><br />
-      生成されるものはもしかしたらカスタマイズできるのかも知れませんが、調べていません。
+    <p>このコマンドを発行すると、デフォルトでは、非常にシンプルなチャットアプリが生成されます。
+    </p>
+    <p>生成されるものはもしかしたらカスタマイズできるのかも知れませんが、調べていません。
     </p>
     <p><em>rate-ticker</em>というプロジェクト名にします。
     </p>
@@ -463,18 +497,23 @@ $ sudo apt-get install git inotify-tools
   $ ../mad deps compile plan repl
       </code>
     </figure>
-    <p>最後のコマンドの'repl'は、「REPLを開く」の意なので、シェル上でErlangのREPLが開いているはずです。<br /><br />
-      当たり前ですがここでコマンド等を試しに入力することも可能です。
+    <p>最後のコマンドの'repl'は、「REPLを開く」の意なので、シェル上でErlangのREPLが開いているはずです。
+    </p>
+    <p>当たり前ですがここでコマンド等を試しに入力することも可能です。
     </p>
   </section>
   <section>
     <a name="%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"></a>
     <h3>設定ファイル</h3>
-    <p>プロジェクトディレクトリ直下に設定ファイルがあるので、必要に応じて調整します。<br /><br />
-      - rebar.config<br /><br />
-      - 利用するライブラリの定義<br /><br />
-      - sys.config<br /><br />
-       - パラメータの定義
+    <p>プロジェクトディレクトリ直下に設定ファイルがあるので、必要に応じて調整します。
+    </p>
+    <p>- rebar.config
+    </p>
+    <p>- 利用するライブラリの定義
+    </p>
+    <p>- sys.config
+    </p>
+    <p>- パラメータの定義
     </p>
     <p>ファイルの内容を見れば一目瞭然なので、説明は省略します。
     </p>
@@ -482,17 +521,19 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%A7%E7%A2%BA%E8%AA%8D"></a>
     <h3>ブラウザで確認</h3>
-    <p>ここまでで、サーバのポート8001番で最低限のWebアプリケーション(チャット)が動いていますので、<br /><br />
-       ブラウザでアクセスしてみます。
+    <p>ここまでで、サーバのポート8001番で最低限のWebアプリケーション(チャット)が動いていますので、
+    </p>
+    <p>ブラウザでアクセスしてみます。
     </p>
     <p>複数のブラウザで開いてみて、あるブラウザで入力したメッセージが、全てのブラウザに正しく伝わるかも確認してみましょう。
     </p>
     <p>
-      <img class="imgw" src="img/jp2.png" alt="">
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp2.png" alt=""></figure>
+    </p>
+    <p>ブラウザ上で何かメッセージを入力してから、CHATボタンを押すと、サーバにはシリアライズされたデータが送信されてきます。
     </p>
     <p>
-       ブラウザ上で何かメッセージを入力してから、CHATボタンを押すと、サーバにはシリアライズされたデータが送信されてきます。<br />
-      <img class="imgw" src="img/jp3.png" alt="">
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp3.png" alt=""></figure>
     </p>
     <p>単純なメッセージでも、結構複雑な形式のデータとして送られています。
     </p>
@@ -500,9 +541,11 @@ $ sudo apt-get install git inotify-tools
   <section>
     <a name="%E3%82%B5%E3%83%BC%E3%83%90%E5%81%B4%E3%81%A7%E7%A2%BA%E8%AA%8D"></a>
     <h3>サーバ側で確認</h3>
-    <p>サーバ側のシェルセッション上にはErlangのREPLが開いており、INFOレベルのログが出力されるので、何が起きているか確認できます。<br /><br />
-       また、ここでENTERキーを押すと、対話型のシェルに入りますので、Erlangのコードを入力可能です。<br /><br />
-      試しにコマンドラインからメッセージを送ってみましょう。
+    <p>サーバ側のシェルセッション上にはErlangのREPLが開いており、INFOレベルのログが出力されるので、何が起きているか確認できます。
+    </p>
+    <p>また、ここでENTERキーを押すと、対話型のシェルに入りますので、Erlangのコードを入力可能です。
+    </p>
+    <p>試しにコマンドラインからメッセージを送ってみましょう。
     </p>
     <figure>
       <code>
@@ -517,17 +560,26 @@ $ sudo apt-get install git inotify-tools
     <h3>バイナリフレーム送受信の確認</h3>
     <p>もうちょっと詳しく見てみましょう。
     </p>
-    <p>クライアント側にどのようなメッセージが来ているか、ブラウザの開発者ツールで確認してみます。<br /><br />
-      Chromeで、F12キーを押して開発者ツールを開き、Network - Framesを選択、WSタブをクリック。<br /><br />
-       オレンジ色で、Binary Frameという列がありますから、確かにバイナリでデータが届けられました。<br /><br />
-      <img class="imgw" src="img/jp4.png" alt="">
+    <p>クライアント側にどのようなメッセージが来ているか、ブラウザの開発者ツールで確認してみます。
     </p>
-    <p>次に、デバッグプリントを有効にして、コンソール上に詳細情報を出すようにします。<br /><br />
-      F12キーを押して開発者ツールを開き、Sourceペーンのn2o/protocols/client.jsをクリックします。<br /><br />
-       これはサーバからのメッセージを読み込む処理の一部です。<br /><br />
-      client.jsのソースを見るとすぐ分かる通り、debug という変数が真ならデータがコンソールにデバッグ出力されるようになっているので、debug変数を定義しましょう。<br /><br />
-      debug変数は、別のファイル、n2o.jsに定義されています。<br /><br />
-      Chrome上でテンポラリでJSを編集しても良いですが、毎回やるのも面倒ですので、サーバ側のJSを編集してしまうのがお勧めです。
+    <p>Chromeで、F12キーを押して開発者ツールを開き、Network - Framesを選択、WSタブをクリック。
+    </p>
+    <p>オレンジ色で、Binary Frameという列がありますから、確かにバイナリでデータが届けられました。
+    </p>
+    <p>
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp4.png" alt=""></figure>
+    </p>
+    <p>次に、デバッグプリントを有効にして、コンソール上に詳細情報を出すようにします。
+    </p>
+    <p>F12キーを押して開発者ツールを開き、Sourceペーンのn2o/protocols/client.jsをクリックします。
+    </p>
+    <p>これはサーバからのメッセージを読み込む処理の一部です。
+    </p>
+    <p>client.jsのソースを見るとすぐ分かる通り、debug という変数が真ならデータがコンソールにデバッグ出力されるようになっているので、debug変数を定義しましょう。
+    </p>
+    <p>debug変数は、別のファイル、n2o.jsに定義されています。
+    </p>
+    <p>Chrome上でテンポラリでJSを編集しても良いですが、毎回やるのも面倒ですので、サーバ側のJSを編集してしまうのがお勧めです。
     </p>
     <figure>
       <code>
@@ -539,9 +591,11 @@ $ sudo apt-get install git inotify-tools
       debug  = true,
       </code>
     </figure>
-    <p>関係ないですが、サーバ上でファイルを編集すると、madが自動的にリロードしてくれるため、アプリの手動再起動が必要ありません。<br /><br />
-       ブラウザの方をリロードするだけで大丈夫です。これは大変便利ですね。<br /><br />
-       (もしそうならない場合は、inotify-toolsをインストールして下さい)
+    <p>関係ないですが、サーバ上でファイルを編集すると、madが自動的にリロードしてくれるため、アプリの手動再起動が必要ありません。
+    </p>
+    <p>ブラウザの方をリロードするだけで大丈夫です。これは大変便利ですね。
+    </p>
+    <p>(もしそうならない場合は、inotify-toolsをインストールして下さい)
     </p>
     <figure>
       <code>
@@ -570,11 +624,13 @@ $ sudo apt-get install git inotify-tools
     </figure>
     <p>ブラウザのコンソールに生っぽいデータが表示されたと思います。
     </p>
-    <p>N2Oではデータの送受信をBERTというバイナリ形式で行っています。<br /><br />
-       クライアント側だと「protocols/bert.js」を読むと雰囲気がつかめると思います。
+    <p>N2Oではデータの送受信をBERTというバイナリ形式で行っています。
     </p>
-    <p>ブラウザの開発者ツールで、client.jsを開き、適切な場所にブレークポイントを設置すると生のデータが確認できます。<br /><br />
-      例えば、メッセージはこのような形式です。
+    <p>クライアント側だと「protocols/bert.js」を読むと雰囲気がつかめると思います。
+    </p>
+    <p>ブラウザの開発者ツールで、client.jsを開き、適切な場所にブレークポイントを設置すると生のデータが確認できます。
+    </p>
+    <p>例えば、メッセージはこのような形式です。
     </p>
     <figure>
       <code>
@@ -589,9 +645,11 @@ $ sudo apt-get install git inotify-tools
   "eval": ""
       </code>
     </figure>
-    <p>この例では空なので見てもよく分からないですが、この部分にはJavaScriptの命令文が入って来ます。結構ユニークですね。<br /><br />
-       ブラウザでevalするだけ で、フォームに値がセットされたり、文字や背景色が変わったりという事に使う事が出来ます。<br /><br />
-       どうせデータを送ってもパースしてからどこかにセットするわけなので、サーバから送られる時、命令文を組み立てて置けばよい、
+    <p>この例では空なので見てもよく分からないですが、この部分にはJavaScriptの命令文が入って来ます。結構ユニークですね。
+    </p>
+    <p>ブラウザでevalするだけ で、フォームに値がセットされたり、文字や背景色が変わったりという事に使う事が出来ます。
+    </p>
+    <p>どうせデータを送ってもパースしてからどこかにセットするわけなので、サーバから送られる時、命令文を組み立てて置けばよい、
        ということでしょうか。この発想は私には目から鱗でした。NitrogenのPushBack方式、と解説されていましたが、
       SPAで良くあるやり方なのか、Nitrogenのやり方なのかはよく分かりませんでした。
     </p>
@@ -601,8 +659,9 @@ $ sudo apt-get install git inotify-tools
           115,115,97,103,101,33,33,33]
       </code>
     </figure>
-    <p>dataも、生の値ではなく、BERT形式でエンコードされています。<br /><br />
-       ブラウザコンソール上ではdec()関数でデコードできます。
+    <p>dataも、生の値ではなく、BERT形式でエンコードされています。
+    </p>
+    <p>ブラウザコンソール上ではdec()関数でデコードできます。
     </p>
     <figure>
       <code>
@@ -610,13 +669,16 @@ $ sudo apt-get install git inotify-tools
        115,97,103,101,33,33,33])
       </code>
     </figure>
-    <p>試しにコンソールからカスタムメッセージを送ってみましょう。<br /><br />
-       ただメッセージを送るだけでも、結構複雑なデータ構造を与えないといけません。<br /><br />
-       トークンの値は、接続時にサーバ側から送られているので、ブラウザの開発者ツールで確認して値を置き換えて下さい。<br /><br />
-       トークンの値が間違っていると、サーバ側で無視されますので、何も起きません。
+    <p>試しにコンソールからカスタムメッセージを送ってみましょう。
+    </p>
+    <p>ただメッセージを送るだけでも、結構複雑なデータ構造を与えないといけません。
+    </p>
+    <p>トークンの値は、接続時にサーバ側から送られているので、ブラウザの開発者ツールで確認して値を置き換えて下さい。
+    </p>
+    <p>トークンの値が間違っていると、サーバ側で無視されますので、何も起きません。
     </p>
     <p>
-      <img class="imgw" src="img/jp5.png" alt="">
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp5.png" alt=""></figure>
     </p>
     <figure>
       <code>
@@ -633,28 +695,35 @@ $ sudo apt-get install git inotify-tools
       ])));
       </code>
     </figure>
-    <p>上手く行くと、以下のように送ったメッセージがそのままサーバから返ってきてブラウザ上に表示されるはずです。<br /><br />
-      <img class="imgw" src="img/jp6.png" alt="">
+    <p>上手く行くと、以下のように送ったメッセージがそのままサーバから返ってきてブラウザ上に表示されるはずです。
+    </p>
+    <p>
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp6.png" alt=""></figure>
     </p>
   </section>
   <section>
     <a name="n2o%E3%81%AE%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3"></a>
     <h3>N2Oのアーキテクチャ</h3>
     <p>
-      <img class="imgw" src="img/jp7.png" alt="">
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp7.png" alt=""></figure>
     </p>
   </section>
   <section>
     <a name="%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E7%94%BB%E9%9D%A2%E3%81%AE%E4%BD%9C%E6%88%90"></a>
     <h3>リアルタイムレート画面の作成</h3>
-    <p>簡単なサンプルチャットアプリを動かして、自動・手動のメッセージ送受信まで出来ました。<br /><br />
-      次にリアルタイムレート配信サービスを作成します。<br /><br />
-      仕組み的にはチャットとレート配信は似ているため、チャットのサンプルを改造すれば良さそうです。<br /><br />
-      画面用のパーツとしてJSのライブラリ等を使うため、Webアプリの「ルーティング」を調整する必要があります。<br /><br />
-       また、画面のテンプレートの作成・処理も必要です。
+    <p>簡単なサンプルチャットアプリを動かして、自動・手動のメッセージ送受信まで出来ました。
     </p>
-    <p>まずは配信部分。単体で動作確認した、リアルタイムレートをAPIから取得するソースを使います。<br /><br />
-      wf_bitfinex.erlをプロジェクトに組み込み。
+    <p>次にリアルタイムレート配信サービスを作成します。
+    </p>
+    <p>仕組み的にはチャットとレート配信は似ているため、チャットのサンプルを改造すれば良さそうです。
+    </p>
+    <p>画面用のパーツとしてJSのライブラリ等を使うため、Webアプリの「ルーティング」を調整する必要があります。
+    </p>
+    <p>また、画面のテンプレートの作成・処理も必要です。
+    </p>
+    <p>まずは配信部分。単体で動作確認した、リアルタイムレートをAPIから取得するソースを使います。
+    </p>
+    <p>wf_bitfinex.erlをプロジェクトに組み込み。
     </p>
     <figure>
       <code>
@@ -705,16 +774,19 @@ $ sudo apt-get install git inotify-tools
     <a name="%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E7%A2%BA%E8%AA%8D-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6"></a>
     <h3>リアルタイムレートの確認 (ブラウザ)</h3>
     <p>
-      <img class="imgw" src="img/jp8.png" alt="">
+      <figure><figcaption></figcaption><img class="imgw" src="img/jp8.png" alt=""></figure>
     </p>
   </section>
   <section>
     <a name="%E7%94%BB%E9%9D%A2%E5%91%A8%E3%82%8A%E3%81%AE%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90"></a>
     <h3>画面周りのテンプレート作成</h3>
-    <p>リアルタイムレートがブラウザに配信され生で表示されるところまで来ました。<br /><br />
-       あとは綺麗に表示すれば完成なのですが・・・<br /><br />
-      元々作っていたサンプルがN2O v2.11で動かなくなってしまったため調整中です。<br /><br />
-       すみません!
+    <p>リアルタイムレートがブラウザに配信され生で表示されるところまで来ました。
+    </p>
+    <p>あとは綺麗に表示すれば完成なのですが・・・
+    </p>
+    <p>元々作っていたサンプルがN2O v2.11で動かなくなってしまったため調整中です。
+    </p>
+    <p>すみません!
     </p>
     <p>** TBD **
     </p>
@@ -729,16 +801,19 @@ $ sudo apt-get install git inotify-tools
     <h3>マルチクライアント対応 (Pub/Sub)</h3>
     <p>** ※この手順は昔のバージョンでのみ必要です。N2O v2.11では標準でこのように動作するようになっていました **
     </p>
-    <p>標準のチャットのサンプルは、1 対 1の通信をするものとなっていますので、<br /><br />
-       もっとチャットらしく、1 対 多のPub/Subの通信をするよう変えてみます。<br /><br />
-      N2Oには、Pub/Sub用APIが用意されていますので、呼び出すだけ使えます。<br /><br />
-      (Pub/Subの実装は<a href="https://github.com/uwiger/gproc">gproc</a>が利用されています)
+    <p>標準のチャットのサンプルは、1 対 1の通信をするものとなっていますので、
+    </p>
+    <p>もっとチャットらしく、1 対 多のPub/Subの通信をするよう変えてみます。
+    </p>
+    <p>N2Oには、Pub/Sub用APIが用意されていますので、呼び出すだけ使えます。
+    </p>
+    <p>(Pub/Subの実装は<a href="https://github.com/uwiger/gproc">gproc</a>が利用されています)
     </p>
     <ul class="disc">
       <li>wf:reg
         <ul class="circle">
-          <li><a href="http://synrc.com/apps/n2o/doc/web/api.htm" class="autolink">
-                http://synrc.com/apps/n2o/doc/web/api.htm</a></li>
+          <li><a href="https://synrc.com/apps/n2o/doc/web/api.htm" class="autolink">
+                https://synrc.com/apps/n2o/doc/web/api.htm</a></li>
         </ul>
       </li>
     </ul>
@@ -805,11 +880,15 @@ $ sudo apt-get install git inotify-tools
       <li>ハートビート機能が標準で付いてくる (4秒毎のPING/PONG、こちらも取り外し可能)</li>
       <li>速さ (<strong>注</strong>: 体感) ※要ベンチマーク</li>
     </ul>
-    <p>今回紹介した機能を実現するため実装したのは、ソースコードの行数で言うと50行程度。<br /><br />
-       あまりにあっさり出来るので正直拍子抜けする位でした。<br /><br />
-       また表現力も高く、SPAのアプリの中にはErlangの一ファイルですっきり実現出来るものもありそうです。<br /><br />
-      (<a href="https://synrc.com/apps/n2o/">N2Oのトップページ</a>で紹介されているchat.erlのイメージ)<br /><br />
-      個人的には、N2Oは一見シンプルですがフレームワークの機能は豊富だし奥が深そうに感じています。
+    <p>今回紹介した機能を実現するため実装したのは、ソースコードの行数で言うと50行程度。
+    </p>
+    <p>あまりにあっさり出来るので正直拍子抜けする位でした。
+    </p>
+    <p>また表現力も高く、SPAのアプリの中にはErlangの一ファイルですっきり実現出来るものもありそうです。
+    </p>
+    <p>(<a href="https://synrc.com/apps/n2o/">N2Oのトップページ</a>で紹介されているchat.erlのイメージ)
+    </p>
+    <p>個人的には、N2Oは一見シンプルですがフレームワークの機能は豊富だし奥が深そうに感じています。
     </p>
     <p>一点、N2OではWebSocketが使えないクライアントのために、XHRによるフォールバックのエンドポイントも用意されているのですが、
       v2.4の頃は安定性に少し問題があり、開発者も修正に積極的ではない様子でした。
@@ -817,8 +896,9 @@ $ sudo apt-get install git inotify-tools
     <ul class="disc">
       <li><a href="https://github.com/synrc/n2o/issues/196">Github - N2O - Issue 195 - Broken XHR</a></li>
     </ul>
-    <p>実際、チャットのサンプルをWebSocketとXHRで動かした時に、XHRの方にだけメッセージが来ない現象がありました。<br /><br />
-       しかし、最近のバージョンでは
+    <p>実際、チャットのサンプルをWebSocketとXHRで動かした時に、XHRの方にだけメッセージが来ない現象がありました。
+    </p>
+    <p>しかし、最近のバージョンでは
       <a href="https://github.com/synrc/n2o/commits/959c08373e216fff918a8284b130b80d7e67aba3/src/endpoints/cowboy/n2o_stream.erl">
       n2o_streamというエンドポイントが新規で追加</a>されているので、改善されている可能性がありそうです。
     </p>
@@ -829,8 +909,9 @@ $ sudo apt-get install git inotify-tools
     <p>N2Oは利用者がまだそれほど多くなく、ライブラリの安定性や高負荷時の挙動については別途評価が必要と思われますが、
       WebSocketでリアルタイム通信をするようなアプリでは、候補として検討してみてはいかがでしょうか?
     </p>
-    <p>今回は、長い割にはN2Oを駆け足で紹介しただけで終わってしまいました。<br /><br />
-      WebSocketに加えてHTTP/1.1 Chunkedでの配信する、等も試してみたので何かの機会に紹介できたらなと思います。
+    <p>今回は、長い割にはN2Oを駆け足で紹介しただけで終わってしまいました。
+    </p>
+    <p>WebSocketに加えてHTTP/1.1 Chunkedでの配信する、等も試してみたので何かの機会に紹介できたらなと思います。
     </p>
     <p>ErlangとN2Oを使って、<a href="http://shogiwars.heroz.jp/">将棋ウォーズ</a>や<a href="http://ja.lichess.org/">lichess</a>のようなリアルタイム対戦サービスを作るのが私の来年の目標です。
     </p>
@@ -852,6 +933,7 @@ $ sudo apt-get install git inotify-tools
     <p>Original article <a href="https://qiita.com/dseg/items/4f2c8b04aec35cc504f0">https://qiita.com/dseg/items/4f2c8b04aec35cc504f0</a>
       written by <a href="https://qiita.com/dseg">Daichi Shinozaki ( @dseg )</a></p>
   </section>
+</article>
 </main>
 <footer>
   2005—2019 © Synrc Research Center

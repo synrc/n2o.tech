@@ -13,7 +13,7 @@ Client Languages
 
 * Client Tier 3：（JavaScript、Lua）
 * Client Tier 2：（Swift、Kotlin、TypeScript）
-* Client Tier 1：（UrWeb, OCaml）
+* Client Tier 1：（UrWeb、OCaml）
 * Client Tier 0：（Formality）
 
 Server Languages
